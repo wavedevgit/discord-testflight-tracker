@@ -27,6 +27,10 @@ jobs:
 
             - name: Run script
               run: node track.mjs
+              env:
+                KEY: ${{ secrets.KEY }}
+                API_URL: ${{ secrets.API_URL }}
+                WEBHOOK: ${{ secrets.WEBHOOK }}
               
             - name: Set git identity
               run: |
