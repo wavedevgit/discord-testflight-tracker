@@ -94,7 +94,7 @@ async function main() {
         })();
         if (data.buildVersionId === oldInfo.buildVersionId) return;
         // send new updates
-        await sendBuildWebhook({ webhookUrl: process.env.WEBHOOK, ...data, size: data.size /  });
+        await sendBuildWebhook({ webhookUrl: process.env.WEBHOOK, ...data, size: `${(data.size / (1024 * 1024)).toFixed(2)} MB`  });
         await fs.writeFile('./info.json', JSON.stringify(data), 'utf-8');
     } catch {}
 }
